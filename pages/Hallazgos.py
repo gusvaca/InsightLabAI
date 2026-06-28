@@ -9,168 +9,224 @@ from analytics.insights.service import InsightService
 df = obtener_dataset()
 
 Layout.render(
+
     "🧠 Hallazgos Inteligentes",
+
     df
+
 )
 
 if df is None:
 
-    st.warning("Primero carga un dataset.")
+    st.warning(
+
+        "Primero cargue un dataset."
+
+    )
 
     st.stop()
 
 
-with st.spinner("Analizando información..."):
+with st.spinner(
 
-    analysis = InsightService.analyze_dataset(df)
+    "Analizando información..."
+
+):
+
+    analysis = InsightService.analyze_dataset(
+
+        df
+
+    )
 
 
-# =====================================================
-# RESUMEN EJECUTIVO
-# =====================================================
+# ======================================================
+# CABECERA
+# ======================================================
 
-st.subheader("📋 Resumen Ejecutivo")
+c1, c2 = st.columns(2)
+
+c1.metric(
+
+    "Score de Calidad",
+
+    f"{analysis.score:.0f}/100"
+
+)
+
+c2.metric(
+
+    "Estado",
+
+    analysis.estado
+
+)
+
+st.divider()
+
+
+# ======================================================
+# RESUMEN
+# ======================================================
+
+st.subheader(
+
+    "📋 Resumen Ejecutivo"
+
+)
 
 st.info(
 
-    analysis["resumen"]
+    analysis.resumen
 
 )
 
 st.divider()
 
 
-# =====================================================
-# NIVEL DE MADUREZ
-# =====================================================
+# ======================================================
+# HALLAZGOS
+# ======================================================
 
-st.subheader("📈 Nivel de Madurez")
+st.subheader(
 
-madurez = analysis["madurez"]
+    "🔍 Hallazgos Detectados"
 
-if isinstance(madurez, dict):
+)
 
-    for k, v in madurez.items():
+if len(analysis.insights) == 0:
 
-        if isinstance(v, (int, float)):
+    st.success(
 
-            st.metric(
+        "No se identificaron hallazgos relevantes."
 
-                k.replace("_", " ").title(),
+    )
 
-                v
+else:
 
-            )
+    for insight in analysis.insights:
+
+        prioridad = insight.prioridad.lower()
+
+        texto = f"""
+### {insight.icono} {insight.titulo}
+
+**Categoría:** {insight.categoria}
+
+**Prioridad:** {insight.prioridad}
+
+{insight.mensaje}
+"""
+
+        if prioridad == "alta":
+
+            st.error(texto)
+
+        elif prioridad == "media":
+
+            st.warning(texto)
 
         else:
 
-            st.write(
-
-                f"**{k}:** {v}"
-
-            )
-
-else:
-
-    st.write(madurez)
+            st.success(texto)
 
 st.divider()
 
 
-# =====================================================
-# INTERPRETACIÓN DEL NEGOCIO
-# =====================================================
+# ======================================================
+# FORTALEZAS
+# ======================================================
 
-st.subheader("💼 Interpretación del Negocio")
+st.subheader(
 
-negocio = analysis["negocio"]
-
-if isinstance(negocio, dict):
-
-    for k, v in negocio.items():
-
-        st.write(
-
-            f"**{k}:** {v}"
-
-        )
-
-else:
-
-    st.write(
-
-        negocio
-
-    )
-
-st.divider()
-
-
-# =====================================================
-# HISTORIA
-# =====================================================
-
-st.subheader("📖 Historia del Dataset")
-
-st.write(
-
-    analysis["historia"]
+    "✅ Fortalezas"
 
 )
 
-st.divider()
+if analysis.fortalezas:
 
+    for item in analysis.fortalezas:
 
-# =====================================================
-# RECOMENDACIONES
-# =====================================================
-
-st.subheader("💡 Recomendaciones")
-
-resultado = analysis["resultado"]
-
-if isinstance(resultado, dict):
-
-    recomendaciones = resultado.get(
-
-        "recomendaciones",
-
-        []
-
-    )
-
-    if recomendaciones:
-
-        for r in recomendaciones:
-
-            st.success(r)
-
-    else:
-
-        st.info(
-
-            "No existen recomendaciones."
-
-        )
+        st.success(item)
 
 else:
 
-    st.write(resultado)
+    st.info(
+
+        "No existen fortalezas registradas."
+
+    )
 
 st.divider()
 
 
-# =====================================================
+# ======================================================
+# RIESGOS
+# ======================================================
+
+st.subheader(
+
+    "⚠ Riesgos"
+
+)
+
+if analysis.riesgos:
+
+    for item in analysis.riesgos:
+
+        st.warning(item)
+
+else:
+
+    st.success(
+
+        "No se identificaron riesgos."
+
+    )
+
+st.divider()
+
+
+# ======================================================
+# RECOMENDACIONES
+# ======================================================
+
+st.subheader(
+
+    "💡 Recomendaciones"
+
+)
+
+if analysis.recomendaciones:
+
+    for item in analysis.recomendaciones:
+
+        st.info(item)
+
+else:
+
+    st.success(
+
+        "No existen recomendaciones adicionales."
+
+    )
+
+st.divider()
+
+
+# ======================================================
 # PRÓXIMOS PASOS
-# =====================================================
+# ======================================================
 
-st.subheader("🚀 Próximos Pasos")
+st.subheader(
 
-pasos = analysis["siguientes_pasos"]
+    "🚀 Próximos Pasos"
 
-if isinstance(pasos, list):
+)
 
-    for paso in pasos:
+if analysis.proximos_pasos:
+
+    for paso in analysis.proximos_pasos:
 
         st.write(
 
@@ -180,8 +236,8 @@ if isinstance(pasos, list):
 
 else:
 
-    st.write(
+    st.success(
 
-        pasos
+        "No existen próximos pasos definidos."
 
     )
