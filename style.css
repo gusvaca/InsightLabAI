@@ -1,0 +1,981 @@
+/* ==========================================================
+   INSIGHTLAB AI
+   ENTERPRISE DESIGN SYSTEM V2
+   ========================================================== */
+
+/* ==========================================================
+   VARIABLES
+   ========================================================== */
+
+:root{
+
+    --primary:#2563EB;
+    --primary-dark:#1D4ED8;
+    --primary-light:#DBEAFE;
+
+    --secondary:#7C3AED;
+    --secondary-light:#EDE9FE;
+
+    --success:#16A34A;
+    --success-light:#DCFCE7;
+
+    --warning:#D97706;
+    --warning-light:#FEF3C7;
+
+    --danger:#DC2626;
+    --danger-light:#FEE2E2;
+
+    --info:#0891B2;
+    --info-light:#CFFAFE;
+
+    --sidebar:#0F172A;
+    --sidebar-hover:#1E293B;
+
+    --background:#F8FAFC;
+
+    --surface:#FFFFFF;
+
+    --border:#E2E8F0;
+
+    --text:#0F172A;
+
+    --text-light:#475569;
+
+    --shadow-sm:
+        0 1px 2px rgba(15,23,42,.05);
+
+    --shadow:
+
+        0 4px 18px rgba(15,23,42,.08);
+
+    --shadow-lg:
+
+        0 12px 35px rgba(15,23,42,.12);
+
+    --radius:16px;
+
+}
+
+/* ==========================================================
+   BODY
+   ========================================================== */
+
+.stApp{
+
+    background:var(--background);
+
+    color:var(--text);
+
+    font-family:
+
+        "Segoe UI",
+
+        Inter,
+
+        Arial,
+
+        sans-serif;
+
+}
+/* ==========================================================
+   SIDEBAR ENTERPRISE
+   ========================================================== */
+
+section[data-testid="stSidebar"]{
+
+    background:linear-gradient(
+        180deg,
+        #0F172A 0%,
+        #111827 100%
+    );
+
+    border-right:1px solid #1E293B;
+
+    box-shadow:
+        4px 0 18px rgba(0,0,0,.15);
+
+}
+
+section[data-testid="stSidebar"] *{
+
+    color:white;
+
+}
+
+/* Espaciado */
+
+section[data-testid="stSidebar"] > div:first-child{
+
+    padding-top:20px;
+
+    padding-left:18px;
+
+    padding-right:18px;
+
+}
+
+/* Logo */
+
+section[data-testid="stSidebar"] img{
+
+    border-radius:14px;
+
+    margin-bottom:20px;
+
+}
+
+/* Navegación */
+
+[data-testid="stSidebarNav"]{
+
+    margin-top:10px;
+
+}
+
+[data-testid="stSidebarNav"] ul{
+
+    gap:8px;
+
+}
+
+/* Botones del menú */
+
+[data-testid="stSidebarNav"] li{
+
+    border-radius:14px;
+
+    transition:.30s;
+
+    margin-bottom:4px;
+
+}
+
+[data-testid="stSidebarNav"] li:hover{
+
+    background:rgba(255,255,255,.08);
+
+    transform:translateX(4px);
+
+}
+
+/* Página activa */
+
+[data-testid="stSidebarNav"] li[data-selected="true"]{
+
+    background:linear-gradient(
+
+        90deg,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+    box-shadow:
+
+        0 6px 18px rgba(37,99,235,.30);
+
+}
+
+/* Texto */
+
+[data-testid="stSidebarNav"] span{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    letter-spacing:.2px;
+
+}
+
+/* Scroll */
+
+section[data-testid="stSidebar"] ::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+section[data-testid="stSidebar"] ::-webkit-scrollbar-thumb{
+
+    background:#334155;
+
+    border-radius:10px;
+
+}
+/* ==========================================================
+   SIDEBAR ENTERPRISE
+   ========================================================== */
+
+section[data-testid="stSidebar"]{
+
+    background:linear-gradient(
+        180deg,
+        #0F172A 0%,
+        #111827 100%
+    );
+
+    border-right:1px solid #1E293B;
+
+    box-shadow:
+        4px 0 18px rgba(0,0,0,.15);
+
+}
+
+section[data-testid="stSidebar"] *{
+
+    color:white;
+
+}
+
+/* Espaciado */
+
+section[data-testid="stSidebar"] > div:first-child{
+
+    padding-top:20px;
+
+    padding-left:18px;
+
+    padding-right:18px;
+
+}
+
+/* Logo */
+
+section[data-testid="stSidebar"] img{
+
+    border-radius:14px;
+
+    margin-bottom:20px;
+
+}
+
+/* Navegación */
+
+[data-testid="stSidebarNav"]{
+
+    margin-top:10px;
+
+}
+
+[data-testid="stSidebarNav"] ul{
+
+    gap:8px;
+
+}
+
+/* Botones del menú */
+
+[data-testid="stSidebarNav"] li{
+
+    border-radius:14px;
+
+    transition:.30s;
+
+    margin-bottom:4px;
+
+}
+
+[data-testid="stSidebarNav"] li:hover{
+
+    background:rgba(255,255,255,.08);
+
+    transform:translateX(4px);
+
+}
+
+/* Página activa */
+
+[data-testid="stSidebarNav"] li[data-selected="true"]{
+
+    background:linear-gradient(
+
+        90deg,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+    box-shadow:
+
+        0 6px 18px rgba(37,99,235,.30);
+
+}
+
+/* Texto */
+
+[data-testid="stSidebarNav"] span{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    letter-spacing:.2px;
+
+}
+
+/* Scroll */
+
+section[data-testid="stSidebar"] ::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+section[data-testid="stSidebar"] ::-webkit-scrollbar-thumb{
+
+    background:#334155;
+
+    border-radius:10px;
+
+}
+/* ==========================================================
+   KPI CARDS
+   ========================================================== */
+
+div[data-testid="stMetric"]{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-left:5px solid var(--primary);
+
+    border-radius:var(--radius);
+
+    padding:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:all .25s ease;
+
+}
+
+div[data-testid="stMetric"]:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+div[data-testid="stMetricLabel"]{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+div[data-testid="stMetricValue"]{
+
+    color:var(--text);
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   BOTONES
+   ========================================================== */
+
+.stButton>button{
+
+    width:100%;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:white;
+
+    font-weight:700;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:all .30s ease;
+
+    box-shadow:0 8px 20px rgba(37,99,235,.20);
+
+}
+
+.stButton>button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 14px 30px rgba(37,99,235,.30);
+
+}
+
+.stButton>button:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================================
+   INPUTS
+   ========================================================== */
+
+.stSelectbox div[data-baseweb="select"],
+
+.stMultiSelect div[data-baseweb="select"],
+
+.stNumberInput input,
+
+.stTextInput input{
+
+    border-radius:12px !important;
+
+    border:1px solid var(--border) !important;
+
+    background:white !important;
+
+    transition:.30s;
+
+}
+
+.stSelectbox div[data-baseweb="select"]:hover,
+
+.stMultiSelect div[data-baseweb="select"]:hover,
+
+.stNumberInput input:hover,
+
+.stTextInput input:hover{
+
+    border-color:var(--primary) !important;
+
+}
+
+.stSelectbox div[data-baseweb="select"]:focus-within,
+
+.stMultiSelect div[data-baseweb="select"]:focus-within,
+
+.stNumberInput input:focus,
+
+.stTextInput input:focus{
+
+    border-color:var(--primary) !important;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+
+}
+
+/* ==========================================================
+   SLIDER
+   ========================================================== */
+
+.stSlider{
+
+    padding-top:10px;
+
+}
+
+.stSlider [role="slider"]{
+
+    background:var(--primary);
+
+    border:3px solid white;
+
+    box-shadow:0 0 10px rgba(37,99,235,.35);
+
+}
+/* ==========================================================
+   TITULOS ENTERPRISE
+   ========================================================== */
+
+h1{
+
+    font-size:2.2rem;
+
+    font-weight:800;
+
+    color:var(--text);
+
+    letter-spacing:-0.5px;
+
+    margin-bottom:8px;
+
+}
+
+h2{
+
+    font-size:1.7rem;
+
+    font-weight:700;
+
+    color:#1E293B;
+
+    margin-top:15px;
+
+}
+
+h3{
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
+    color:#334155;
+
+}
+
+/* ==========================================================
+   CAPTION
+   ========================================================== */
+
+.caption,
+[data-testid="stCaptionContainer"]{
+
+    color:#64748B;
+
+    font-size:.90rem;
+
+}
+
+/* ==========================================================
+   MARKDOWN
+   ========================================================== */
+
+.stMarkdown p{
+
+    color:#475569;
+
+    line-height:1.75;
+
+    font-size:15px;
+
+}
+
+/* ==========================================================
+   BADGES
+   ========================================================== */
+
+.badge{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.4px;
+
+}
+
+.badge-primary{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+.badge-success{
+
+    background:var(--success-light);
+
+    color:var(--success);
+
+}
+
+.badge-warning{
+
+    background:var(--warning-light);
+
+    color:var(--warning);
+
+}
+
+.badge-danger{
+
+    background:var(--danger-light);
+
+    color:var(--danger);
+
+}
+
+/* ==========================================================
+   TARJETAS
+   ========================================================== */
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    border:1px solid var(--border);
+
+    padding:24px;
+
+    box-shadow:var(--shadow);
+
+    transition:.30s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+/* ==========================================================
+   PROGRESS BAR
+   ========================================================== */
+
+.stProgress{
+
+    height:14px;
+
+}
+
+.stProgress > div{
+
+    border-radius:999px;
+
+}
+
+.stProgress div[role="progressbar"]{
+
+    background:linear-gradient(
+
+        90deg,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+}
+
+/* ==========================================================
+   TOOLTIP
+   ========================================================== */
+
+[data-baseweb="tooltip"]{
+
+    border-radius:10px;
+
+}
+
+/* ==========================================================
+   POPOVER
+   ========================================================== */
+
+[data-baseweb="popover"]{
+
+    border-radius:14px;
+
+}
+
+/* ==========================================================
+   ANIMACIONES
+   ========================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.main .block-container{
+
+    animation:fadeUp .35s ease;
+
+}
+
+/* ==========================================================
+   TITULOS ENTERPRISE
+   ========================================================== */
+
+h1{
+
+    font-size:2.2rem;
+
+    font-weight:800;
+
+    color:var(--text);
+
+    letter-spacing:-0.5px;
+
+    margin-bottom:8px;
+
+}
+
+h2{
+
+    font-size:1.7rem;
+
+    font-weight:700;
+
+    color:#1E293B;
+
+    margin-top:15px;
+
+}
+
+h3{
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
+    color:#334155;
+
+}
+
+/* ==========================================================
+   CAPTION
+   ========================================================== */
+
+.caption,
+[data-testid="stCaptionContainer"]{
+
+    color:#64748B;
+
+    font-size:.90rem;
+
+}
+
+/* ==========================================================
+   MARKDOWN
+   ========================================================== */
+
+.stMarkdown p{
+
+    color:#475569;
+
+    line-height:1.75;
+
+    font-size:15px;
+
+}
+
+/* ==========================================================
+   BADGES
+   ========================================================== */
+
+.badge{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.4px;
+
+}
+
+.badge-primary{
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+}
+
+.badge-success{
+
+    background:var(--success-light);
+
+    color:var(--success);
+
+}
+
+.badge-warning{
+
+    background:var(--warning-light);
+
+    color:var(--warning);
+
+}
+
+.badge-danger{
+
+    background:var(--danger-light);
+
+    color:var(--danger);
+
+}
+
+/* ==========================================================
+   TARJETAS
+   ========================================================== */
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    border:1px solid var(--border);
+
+    padding:24px;
+
+    box-shadow:var(--shadow);
+
+    transition:.30s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+/* ==========================================================
+   PROGRESS BAR
+   ========================================================== */
+
+.stProgress{
+
+    height:14px;
+
+}
+
+.stProgress > div{
+
+    border-radius:999px;
+
+}
+
+.stProgress div[role="progressbar"]{
+
+    background:linear-gradient(
+
+        90deg,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+}
+
+/* ==========================================================
+   TOOLTIP
+   ========================================================== */
+
+[data-baseweb="tooltip"]{
+
+    border-radius:10px;
+
+}
+
+/* ==========================================================
+   POPOVER
+   ========================================================== */
+
+[data-baseweb="popover"]{
+
+    border-radius:14px;
+
+}
+
+/* ==========================================================
+   ANIMACIONES
+   ========================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.main .block-container{
+
+    animation:fadeUp .35s ease;
+
+}
+
+/* ==========================================================
+   OCULTAR NAVEGACIÓN NATIVA DE STREAMLIT
+   ========================================================== */
+
+/* Navegación automática */
+[data-testid="stSidebarNav"]{
+    display:none !important;
+}
+
+/* Encabezado de navegación */
+[data-testid="stSidebarNavSeparator"]{
+    display:none !important;
+}
+
+/* "Pages" */
+[data-testid="stSidebarNavItems"]{
+    display:none !important;
+}
+
+/* Lista de páginas */
+section[data-testid="stSidebar"] ul{
+    display:none !important;
+}
