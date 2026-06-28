@@ -140,6 +140,13 @@ def sidebar():
         )
 
         st.page_link(
+          "pages/Data_Cleaning.py",
+
+            label="🧹 Limpieza de Datos"
+
+        )
+
+        st.page_link(
 
             "pages/Estadísticas.py",
 
@@ -154,13 +161,7 @@ def sidebar():
             label="📊 EDA"
 
         )
-        st.page_link(
-
-    "pages/Cluster_Intelligence.py",
-
-    label="🎯 Cluster Intelligence"
-
-)
+        
 
         st.page_link(
 
@@ -186,11 +187,14 @@ def sidebar():
         )
 
         st.page_link(
-          "pages/Data_Cleaning.py",
 
-            label="🧹 Limpieza de Datos"
+    "pages/Cluster_Intelligence.py",
 
-        )
+    label="🎯 Cluster Intelligence"
+
+)
+
+       
         st.page_link(
 
             "pages/Reportes.py",
