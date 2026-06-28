@@ -105,13 +105,17 @@ st.markdown("""
 
 st.divider()
 
-if existe_dataset():
+if "df" in st.session_state:
 
-    st.success("✅ Existe un conjunto de datos cargado y listo para su análisis.")
+    st.success(
+        "✅ Existe un conjunto de datos cargado y listo para su análisis."
+    )
 
 else:
 
-    st.info("📂 Aún no existe un conjunto de datos cargado. Utilice la opción **Cargar Dataset** del menú lateral para comenzar.")
+    st.info(
+        "📂 Aún no existe un conjunto de datos cargado. Utilice la opción **Cargar Dataset** del menú lateral para comenzar."
+    )
 
 st.divider()
 
