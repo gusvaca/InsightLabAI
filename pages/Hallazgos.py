@@ -40,17 +40,33 @@ with st.spinner(
     )
 
 
-# ======================================================
-# CABECERA
-# ======================================================
+resultado = analysis["resultado"]
+
+
+# ===========================================================
+# HEADER
+# ===========================================================
+
+st.title("🧠 Insight Intelligence Engine")
+
+st.caption(
+    "Hallazgos automáticos generados por InsightLab AI"
+)
+
+st.divider()
+
+
+# ===========================================================
+# SCORE
+# ===========================================================
 
 c1, c2 = st.columns(2)
 
 c1.metric(
 
-    "Score de Calidad",
+    "Score",
 
-    f"{analysis.score:.0f}/100"
+    resultado.score
 
 )
 
@@ -58,16 +74,16 @@ c2.metric(
 
     "Estado",
 
-    analysis.estado
+    resultado.estado
 
 )
 
 st.divider()
 
 
-# ======================================================
+# ===========================================================
 # RESUMEN
-# ======================================================
+# ===========================================================
 
 st.subheader(
 
@@ -77,16 +93,16 @@ st.subheader(
 
 st.info(
 
-    analysis.resumen
+    resultado.resumen
 
 )
 
 st.divider()
 
 
-# ======================================================
+# ===========================================================
 # HALLAZGOS
-# ======================================================
+# ===========================================================
 
 st.subheader(
 
@@ -94,19 +110,17 @@ st.subheader(
 
 )
 
-if len(analysis.insights) == 0:
+if len(resultado.insights) == 0:
 
     st.success(
 
-        "No se identificaron hallazgos relevantes."
+        "No se encontraron hallazgos."
 
     )
 
 else:
 
-    for insight in analysis.insights:
-
-        prioridad = insight.prioridad.lower()
+    for insight in resultado.insights:
 
         texto = f"""
 ### {insight.icono} {insight.titulo}
@@ -117,6 +131,8 @@ else:
 
 {insight.mensaje}
 """
+
+        prioridad = insight.prioridad.lower()
 
         if prioridad == "alta":
 
@@ -130,12 +146,20 @@ else:
 
             st.success(texto)
 
+        if insight.recomendacion:
+
+            st.caption(
+
+                f"💡 {insight.recomendacion}"
+
+            )
+
 st.divider()
 
 
-# ======================================================
+# ===========================================================
 # FORTALEZAS
-# ======================================================
+# ===========================================================
 
 st.subheader(
 
@@ -143,9 +167,9 @@ st.subheader(
 
 )
 
-if analysis.fortalezas:
+if resultado.fortalezas:
 
-    for item in analysis.fortalezas:
+    for item in resultado.fortalezas:
 
         st.success(item)
 
@@ -160,9 +184,9 @@ else:
 st.divider()
 
 
-# ======================================================
+# ===========================================================
 # RIESGOS
-# ======================================================
+# ===========================================================
 
 st.subheader(
 
@@ -170,9 +194,9 @@ st.subheader(
 
 )
 
-if analysis.riesgos:
+if resultado.riesgos:
 
-    for item in analysis.riesgos:
+    for item in resultado.riesgos:
 
         st.warning(item)
 
@@ -187,9 +211,9 @@ else:
 st.divider()
 
 
-# ======================================================
+# ===========================================================
 # RECOMENDACIONES
-# ======================================================
+# ===========================================================
 
 st.subheader(
 
@@ -197,9 +221,9 @@ st.subheader(
 
 )
 
-if analysis.recomendaciones:
+if resultado.recomendaciones:
 
-    for item in analysis.recomendaciones:
+    for item in resultado.recomendaciones:
 
         st.info(item)
 
@@ -207,16 +231,16 @@ else:
 
     st.success(
 
-        "No existen recomendaciones adicionales."
+        "No existen recomendaciones."
 
     )
 
 st.divider()
 
 
-# ======================================================
+# ===========================================================
 # PRÓXIMOS PASOS
-# ======================================================
+# ===========================================================
 
 st.subheader(
 
@@ -224,9 +248,9 @@ st.subheader(
 
 )
 
-if analysis.proximos_pasos:
+if resultado.proximos_pasos:
 
-    for paso in analysis.proximos_pasos:
+    for paso in resultado.proximos_pasos:
 
         st.write(
 
@@ -241,3 +265,46 @@ else:
         "No existen próximos pasos definidos."
 
     )
+
+st.divider()
+
+
+# ===========================================================
+# INFORMACIÓN ADICIONAL
+# ===========================================================
+
+st.subheader(
+
+    "📊 Información del Análisis"
+
+)
+
+st.write(
+
+    f"**Hallazgos:** {len(resultado.insights)}"
+
+)
+
+st.write(
+
+    f"**Fortalezas:** {len(resultado.fortalezas)}"
+
+)
+
+st.write(
+
+    f"**Riesgos:** {len(resultado.riesgos)}"
+
+)
+
+st.write(
+
+    f"**Recomendaciones:** {len(resultado.recomendaciones)}"
+
+)
+
+st.write(
+
+    f"**Próximos pasos:** {len(resultado.proximos_pasos)}"
+
+)
